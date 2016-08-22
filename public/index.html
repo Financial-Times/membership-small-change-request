@@ -1,8 +1,36 @@
 <!DOCTYPE html>
 <html>
+<style>
+    html{
+        width:100%;
+        height:100%;
+    }
+    body{
+        width:100%;
+        height:100%;
+        background-color:#DDD;
+    }
+</style>
 <head>
+    <body>
     <script type="text/javascript" src="https://jira.ft.com/s/75c0931495e1a81a57b92da958636fe0-T/en_UK-1tk646/71004/b6b48b2829824b869586ac216d119363/2.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&collectorId=42e0a90b"></script>
+    <script>
+        function init() {
+            console.log('init target el:', $('#atlwdg-trigger').length);
+            $('#atlwdg-trigger').trigger('click');
+        };
+
+        window.setTimeout(function interval() {
+            if ($('#atlwdg-trigger').length) {
+                console.log('target element found');
+                init();
+            } else {
+                console.log('target element not found');
+                window.setTimeout(interval, 1000);
+            }
+        }, 1000);
+    </script>
+    </body>
 </head>
-<body>
-</body>
 </html>
+
